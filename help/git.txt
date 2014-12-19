@@ -16,6 +16,13 @@ git push
 ===============================================================
 
 git status
+git add .
+git commit -m'add help file'
+git push
+
+===============================================================
+
+git status
 git status -s
 git diff
 
