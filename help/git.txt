@@ -1,0 +1,51 @@
+http://git-scm.com/book/be/v2/Git-Basics-Working-with-Remotes
+===============================================================
+git clone https://github.com/SHackauf/MoonShadow.git
+git remote -v
+===============================================================
+
+git checkout -b hacki
+git checkout hacki
+git add .
+git commit -m'change text'
+git checkout master
+git merge hacki
+git push
+
+
+===============================================================
+
+git status
+git status -s
+git diff
+
+git remote add origin https://github.com/SHackauf/MoonShadow.git
+git status
+git 
+
+git init
+git status
+
+git add .
+git add test.txt
+git add '*.txt'
+git commit -m 'Message text'
+
+git log
+
+git remote add origin https://github.com/try-git/try_git.git
+git push -u origin master
+git pull origin master
+git diff HEAD
+git diff --staged
+git reset octofamily/octodog.txt
+git checkout -- octocat.txt
+
+git branch clean_up
+git checkout clean_up
+git checkout master
+git merge clean_up
+git branch -d clean_up
+git push
+
+git rm '*.txt'
