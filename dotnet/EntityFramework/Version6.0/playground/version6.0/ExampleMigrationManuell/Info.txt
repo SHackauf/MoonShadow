@@ -1,0 +1,79 @@
+﻿Um mehr Einfluss auf die Migration nehmen zu können, kann diese halbautomatisch durchgeführt werden. 
+Hierbei können die Migrationsdateien erzeugt und anschließend manuell angepasst werden. 
+
+Wie bei der automatisierten Migration müssen zuerst die Basiseinstellungen der Migration über die 
+Package Manager Console gesetzt werden (Tools\NuGet Package Manager\Package Manager Console). 
+Hier darauf achten, dass als Default Project das Projekt eingetragen ist, in dem sich auch der Datenbank 
+Kontext befindet. Anschließend folgenden Befehl in der Konsole eingeben:
+enable-migrations –EnableAutomaticMigration:$false
+
+Das Projekt wird nach dem DBContext durchsucht und im Verzeichnis Migrations wird die Klasse Configuration angelegt.
+
+namespace ExampleMigrationAuto.Migrations
+{
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration 
+          : DbMigrationsConfiguration<ExampleMigrationAuto.Services.MyDbContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+        }
+
+        protected override void Seed(ExampleMigrationAuto.Services.MyDbContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
+        }
+    }
+}
+
+Dem eigenen DBContext muss die Konfigurationsklasse mitgeteilt werden. 
+
+class MyDbContext : DbContext
+{
+    public MyDbContext() : base("EF.MigrationManuell")
+    {
+        Database.SetInitializer(
+              new MigrateDatabaseToLatestVersion<MyDbContext, Migrations.Configuration>());
+    }
+
+    public DbSet<Company> Companies { get; set; }
+    public DbSet<Employee> Employees { get; set; }
+}
+
+Nach jeder Modeländerung muss in der Package Manager Console über den Befehl Add-Migration eine neue Migrationsdatei 
+erstellt werden, welche im Verzeichnis Migrations abgelegt wird. Diese Datei kann manuell angepasst werden. 
+
+Add-Migration [-Name] <String> [-Force]
+      [-ProjectName <String>] [-StartUpProjectName <String>]
+      [-ConfigurationTypeName <String>] [-ConnectionStringName <String>]
+      [-IgnoreChanges] [<CommonParameters>]
+ Add-Migration [-Name] <String> [-Force]
+      [-ProjectName <String>] [-StartUpProjectName <String>]
+      [-ConfigurationTypeName <String>] -ConnectionString <String>
+      -ConnectionProviderName <String> [-IgnoreChanges] [<Common Parameters>]
+
+Die Datenbank wird nicht mehr automatisch angepasst, sondern hierfür muss in der Package Manager Console der Befehl 
+update-database abgesetzt werden.
+
+Um eine Datenbank auf einen vorherigen Zustand wieder zurück zu setzen, muss der update-database Befehl mit dem Parameter 
+–TargetMigration:“<Name>“ aufgerufen werden. Name ist hierbei der beim Add-Migration angegebene Name.
+
+Beschreibungen zu den Befehlen können in der Package Manager Console angezeigt werden, in dem folgende Befehle abgesetzt werden:
+-	get-help Add-Migration
+-	get-help Update-Database

@@ -1,0 +1,61 @@
+﻿Um die automatische Migration einzuschalten muss die Package Manager Console gestartet werden (Tools\NuGet Package Manager\Package Manager Console). 
+Hier darauf achten, dass als Default Project das Projekt eingetragen ist, in dem sich auch der Datenbank Kontext befindet. 
+Anschließend folgenden Befehl in der Konsole eingeben:
+enable-migrations –EnableAutomaticMigration:$true
+
+Das Projekt wird nach dem DBContext durchsucht und im Verzeichnis Migrations wird die Klasse Configuration angelegt.
+
+namespace ExampleMigrationAuto.Migrations
+{
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration 
+          : DbMigrationsConfiguration<ExampleMigrationAuto.Services.MyDbContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = true;
+        }
+
+        protected override void Seed(ExampleMigrationAuto.Services.MyDbContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
+        }
+    }
+}
+
+Abschließend muss dem eigenen DBContext die Konfigurationsklasse mitgeteilt werden. 
+class MyDbContext : DbContext
+{
+    public MyDbContext() : base("EF.MigrationAuto")
+    {
+        Database.SetInitializer(
+              new MigrateDatabaseToLatestVersion<MyDbContext, Migrations.Configuration>());
+    }
+
+    public DbSet<Company> Companies { get; set; }
+    public DbSet<Employee> Employees { get; set; }
+}
+
+Nun werden Änderungen an den Models automatisiert in der Datenbank vorgenommen. Hierbei kann es passieren, dass einige Änderungen vom Framework nicht aufgelöst werden können 
+und es daher beim Ändern der Datenbank zu Exception kommt. Hierfür bietet das Framework einige Parameter an, die hierbei helfen sollen. Die Beschreibungen der Möglichkeiten 
+können über die Package Manager Console abgerufen werden in dem folgende Befehle verwendete werden:
+-	get-help Enable-Migrations
+-	get-help Enable-Migrations -examples
+-	get-help Enable-Migrations -detailed
+-	get-help Enable-Migrations -full
+
