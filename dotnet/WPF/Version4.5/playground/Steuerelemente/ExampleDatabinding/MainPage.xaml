@@ -1,0 +1,20 @@
+﻿<Page x:Class="ExampleDatabinding.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Title="MainPage">
+    <StackPanel>
+        <TextBlock><Hyperlink NavigateUri="ExampleBasic.xaml">Basic</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleBindingCodeBehind.xaml">Code Behind</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleConverter.xaml">Converter</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleCollection.xaml">Collections</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleCollectionCurrentItem.xaml">Collections Current Item</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleDataTemplate.xaml">Data Template</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleDataTemplate2.xaml">Data Template 2</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleDataTemplateSelctor.xaml">Data Template Selector</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleValidation.xaml">Validation</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExamplePriorityBinding.xaml">Priority Binding</Hyperlink></TextBlock>
+    </StackPanel>
+</Page>

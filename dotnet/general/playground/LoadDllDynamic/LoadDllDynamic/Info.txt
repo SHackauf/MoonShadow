@@ -1,0 +1,1 @@
+﻿Die externen Dlls müssen manuell in dieses Projekt kopiert werden.

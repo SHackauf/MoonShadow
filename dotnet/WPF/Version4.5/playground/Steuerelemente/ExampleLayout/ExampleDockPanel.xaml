@@ -1,0 +1,20 @@
+﻿<Page x:Class="ExampleLayout.ExampleDockPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+	Title="ExampleDockPanel">
+
+    <DockPanel LastChildFill="True">
+        <TextBlock DockPanel.Dock="Top" Text="Top" HorizontalAlignment="Center"/>
+        <TextBlock DockPanel.Dock="Bottom" Text="Bottom" HorizontalAlignment="Center"/>
+        <Button DockPanel.Dock="Left" Height="50" Width="100">Left</Button>
+        <TextBlock DockPanel.Dock="Right" Text="Right" VerticalAlignment="Center"/>
+        <Rectangle Height="100" Width="300">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="Azure" />
+            </Rectangle.Fill>
+        </Rectangle>
+    </DockPanel>
+</Page>

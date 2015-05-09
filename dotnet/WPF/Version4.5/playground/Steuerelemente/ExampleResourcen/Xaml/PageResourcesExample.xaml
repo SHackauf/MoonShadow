@@ -1,0 +1,49 @@
+﻿<Page x:Class="ExampleResourcen.Xaml.PageResourcesExample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="PageResourcesExample">
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="MyWhiteBrush" Color="White"/>
+        <Style TargetType="Border" x:Key="PageBorder">
+            <Setter Property="Background" Value="LightBlue"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TitleText">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="#FF132946"/>
+            <Setter Property="FontFamily" Value="Trebuchet MS"/>
+            <Setter Property="Margin" Value="0,20,10,10"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="Label">
+            <Setter Property="DockPanel.Dock" Value="Right"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Foreground" Value="{StaticResource MyWhiteBrush}"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,3,10,0"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="{StaticResource MyWhiteBrush}"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </Page.Resources>
+    <StackPanel>
+        <Border Style="{StaticResource PageBorder}">
+            <DockPanel>
+                <TextBlock Style="{StaticResource TitleText}">Title</TextBlock>
+                <TextBlock Style="{StaticResource Label}">Label</TextBlock>
+                <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Left" FontSize="36" Foreground="{StaticResource MyWhiteBrush}" Text="Text" Margin="20" />
+                <Button DockPanel.Dock="Top" HorizontalAlignment="Left">Button</Button>
+                <Ellipse DockPanel.Dock="Top" HorizontalAlignment="Left" Width="100" Height="100" Fill="{StaticResource MyWhiteBrush}" Margin="40" />
+            </DockPanel>
+        </Border>
+    </StackPanel>
+</Page>

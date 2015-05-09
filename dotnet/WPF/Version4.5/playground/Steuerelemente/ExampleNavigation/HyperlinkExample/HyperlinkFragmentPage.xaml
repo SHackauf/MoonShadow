@@ -1,0 +1,25 @@
+<Page x:Class="ExampleNavigation.HyperlinkExample.HyperlinkFragmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	  Title="Page2" WindowTitle="Page2">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="500" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">Hello on Page 2</Label>
+            <TextBlock Grid.Row="1">
+                <Hyperlink NavigateUri="HyperlinkFragmentPage.xaml#FragmentEnd">Navigate to end</Hyperlink>
+            </TextBlock>
+            <TextBlock Name="FragmentEnd" Grid.Row="3"> The end of the page</TextBlock>
+        </Grid>
+    </ScrollViewer>
+</Page>

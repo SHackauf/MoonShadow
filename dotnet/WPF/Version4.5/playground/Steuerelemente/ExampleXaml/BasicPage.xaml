@@ -1,0 +1,44 @@
+﻿<Page x:Class="ExampleXaml.BasicPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
+      Title="BasicPage">
+    <Page.Resources>
+        <Style TargetType="Border" x:Key="BorderBackground">
+            <Setter Property="Background" Value="LightBlue"/>
+        </Style>
+    </Page.Resources>
+    <StackPanel>
+        <TextBlock Text="Hello XAML!"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0">
+                <TextBlock.Text>Hello XAML 1!</TextBlock.Text>
+            </TextBlock>
+            <TextBlock Grid.Row="1" Text="Hello XAML 2!"/>
+        </Grid>
+        <Border>
+            <TextBox Width="300"></TextBox>
+        </Border>
+        <Border>
+            <Border.Child>
+                <TextBox Width="300"></TextBox>
+            </Border.Child>
+        </Border>
+        <Button Click="Button_Click">my button</Button>
+        <Border Style="{StaticResource BorderBackground}">
+            <TextBlock>Hello Border</TextBlock>
+        </Border>
+        <TextBlock Margin="25,15,10,5" Text="Hello Type Converters!"/>
+        <TextBlock Text="Hello Type Converters!">
+            <TextBlock.Margin>
+                <Thickness Left="25" Top="15" Right="10" Bottom="5"/>
+            </TextBlock.Margin>
+        </TextBlock>
+    </StackPanel>
+</Page>

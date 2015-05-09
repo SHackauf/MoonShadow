@@ -1,0 +1,48 @@
+﻿<Page x:Class="ExampleDatabinding.ExampleDataTemplateSelctor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ExampleDatabinding"
+      mc:Ignorable="d" 
+      Title="ExampleDataTemplateSelctor">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="Persons" Source="{Binding Persons}" />
+        <local:PersonDataTemplateSelector x:Key="PersonDataTemplateSelector"/>
+        <DataTemplate x:Key="PersonDataTemplate">
+            <Grid Margin="0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Red">Id:</Label>
+                <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=Id}" Foreground="Red"/>
+                <Label Grid.Row="1" Grid.Column="1">Firstname:</Label>
+                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=Firstname}"/>
+                <Label Grid.Row="2" Grid.Column="1">Lastname:</Label>
+                <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=Lastname}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="AlternativPersonDataTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=Id}"/>
+                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=Firstname}"/>
+                <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=Lastname}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <ListBox Name="ListViewItem" ItemsSource="{Binding Source={StaticResource Persons}}" ItemTemplateSelector="{StaticResource PersonDataTemplateSelector}"/>
+        </ScrollViewer>
+    </StackPanel>
+</Page>

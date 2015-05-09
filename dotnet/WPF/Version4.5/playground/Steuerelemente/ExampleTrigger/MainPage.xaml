@@ -1,0 +1,11 @@
+﻿<Page x:Class="ExampleTrigger.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="MainPage">
+
+    <StackPanel>
+        <TextBlock><Hyperlink NavigateUri="ExamplePropertyTrigger.xaml">PropertyTrigger</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleEventTrigger.xaml">EventTrigger</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleMultiTrigger.xaml">MultiTrigger</Hyperlink></TextBlock>
+    </StackPanel>
+</Page>

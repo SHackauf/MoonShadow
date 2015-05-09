@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadDllDynamic", "LoadDllDynamic\LoadDllDynamic.csproj", "{4A63885F-9553-45FE-A907-4206FD32B02C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{5FC27068-7C6E-4010-BBE7-C032FF8A7D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalDllOne", "ExternalDllOne\ExternalDllOne.csproj", "{367527D3-7D3A-4EB1-ACEC-137C19009C5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalDllTwo", "ExternalDllTwo\ExternalDllTwo.csproj", "{EA7FAD27-FF54-41A0-934D-BFFD5773C3EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A63885F-9553-45FE-A907-4206FD32B02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A63885F-9553-45FE-A907-4206FD32B02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A63885F-9553-45FE-A907-4206FD32B02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A63885F-9553-45FE-A907-4206FD32B02C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FC27068-7C6E-4010-BBE7-C032FF8A7D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FC27068-7C6E-4010-BBE7-C032FF8A7D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FC27068-7C6E-4010-BBE7-C032FF8A7D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FC27068-7C6E-4010-BBE7-C032FF8A7D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{367527D3-7D3A-4EB1-ACEC-137C19009C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{367527D3-7D3A-4EB1-ACEC-137C19009C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{367527D3-7D3A-4EB1-ACEC-137C19009C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{367527D3-7D3A-4EB1-ACEC-137C19009C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA7FAD27-FF54-41A0-934D-BFFD5773C3EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA7FAD27-FF54-41A0-934D-BFFD5773C3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA7FAD27-FF54-41A0-934D-BFFD5773C3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA7FAD27-FF54-41A0-934D-BFFD5773C3EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

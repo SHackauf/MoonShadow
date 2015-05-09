@@ -1,0 +1,62 @@
+﻿<Page x:Class="ExampleTrigger.ExampleEventTrigger"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Title="ExampleEventTrigger">
+    <Page.Resources>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Opacity" Value="0.2"/>
+            <Setter Property="Height" Value="80"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Opacity" Value="1.0"/>
+                </Trigger>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation 
+                                    Duration="0:0:0.5"
+                                    Storyboard.TargetProperty="Height"
+                                    To="120"  />
+                            </Storyboard>
+                        </BeginStoryboard>
+                     </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation 
+                                    Duration="0:0:0.5"
+                                    Storyboard.TargetProperty="Height"
+                                    To="80"  />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+            </Style.Resources>
+        </Style>
+    </Page.Resources>
+    <ListBox>
+        <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal"/>
+            </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+        <ListBoxItem>
+            <Image Source="images\ImageA.jpg"/>
+        </ListBoxItem>
+        <ListBoxItem>
+            <Image Source="images\ImageB.jpg"/>
+        </ListBoxItem>
+        <ListBoxItem>
+            <Image Source="images\ImageC.jpg"/>
+        </ListBoxItem>
+    </ListBox>
+</Page>

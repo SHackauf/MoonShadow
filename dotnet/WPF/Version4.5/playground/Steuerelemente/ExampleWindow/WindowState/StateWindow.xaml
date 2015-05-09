@@ -1,0 +1,9 @@
+﻿<Window x:Class="ExampleWindow.WindowState.StateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StateWindow" Height="300" Width="300"
+        ShowInTaskbar="False" MaxHeight="500" MaxWidth="500">
+    <Grid>
+        <Label Name="Label"></Label>
+    </Grid>
+</Window>

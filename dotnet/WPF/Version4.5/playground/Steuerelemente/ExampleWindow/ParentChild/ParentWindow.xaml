@@ -1,0 +1,18 @@
+<Window x:Class="ExampleWindow.ParentChild.ParentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ParentWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Name="ChildCountLabel"></Label>
+        <Label Grid.Column="1" Grid.Row="0" Name="ClosedCountLabel"></Label>
+        <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Click="Button_Click">Open</Button>
+    </Grid>
+</Window>

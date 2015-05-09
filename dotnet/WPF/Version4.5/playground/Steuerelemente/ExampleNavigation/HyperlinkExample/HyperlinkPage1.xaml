@@ -1,0 +1,26 @@
+<Page x:Class="ExampleNavigation.HyperlinkExample.HyperlinkPage1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="200" d:DesignWidth="500"
+      Title="Page1"
+      WindowTitle="Page1" WindowHeight="200" WindowWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0">Hello on Page 1</Label>
+        <TextBlock Grid.Row="1">
+            <Hyperlink NavigateUri="HyperlinkFragmentPage.xaml">Navigate hyperlink to fragment page</Hyperlink>
+        </TextBlock>
+        <TextBlock Grid.Row="2">           
+            <Hyperlink NavigateUri="http://www.google.com" RequestNavigate="Hyperlink_RequestNavigate">
+                Navigate hyperlink to google
+            </Hyperlink>
+        </TextBlock>
+    </Grid>
+</Page>

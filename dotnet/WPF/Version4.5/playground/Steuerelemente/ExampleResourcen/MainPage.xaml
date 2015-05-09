@@ -1,0 +1,14 @@
+﻿<Page x:Class="ExampleResourcen.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="MainPage">
+
+    <StackPanel>
+        <TextBlock><Hyperlink NavigateUri="Xaml\PageResourcesExample.xaml">XAML Page Resources</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="Xaml\ResourcesByCodeExample.xaml">XAML Resources by Code</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="Xaml\ResourceDictionaryExample.xaml">XAML Resource Dictionary</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="WpfApplicationResource\ResourceFiles\ResourceFilesExample.xaml">WPF Application Resource - Resource File</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="WpfApplicationResource\ContentFiles\ContentFileExample.xaml">WPF Application Resource - Content File</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="WpfApplicationResource\OriginFiles\OriginFileExample.xaml">WPF Application Resource - Origin File</Hyperlink></TextBlock>
+    </StackPanel>
+</Page>

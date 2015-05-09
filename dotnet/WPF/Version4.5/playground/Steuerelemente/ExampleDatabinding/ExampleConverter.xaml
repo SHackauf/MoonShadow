@@ -1,0 +1,20 @@
+﻿<Page x:Class="ExampleDatabinding.ExampleConverter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:c="clr-namespace:ExampleDatabinding.Model" 
+      xmlns:local="clr-namespace:ExampleDatabinding"
+      mc:Ignorable="d" 
+      Title="ExampleConverter">
+    <Page.Resources>
+        <c:DbStyle x:Key="dbStyle"/>
+        <local:ColorBrushConverter x:Key="colorBrushConverter" />
+    </Page.Resources>
+    <Page.DataContext>
+        <Binding Source="{StaticResource dbStyle}"/>
+    </Page.DataContext>
+    <StackPanel>
+        <Button Background="{Binding Path=BackgroundColor, Converter={StaticResource colorBrushConverter}}">Button</Button>
+    </StackPanel>
+</Page>

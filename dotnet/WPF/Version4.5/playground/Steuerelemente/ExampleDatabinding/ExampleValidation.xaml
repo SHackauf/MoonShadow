@@ -1,0 +1,72 @@
+﻿<Page x:Class="ExampleDatabinding.ExampleValidation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:src="clr-namespace:ExampleDatabinding"
+      mc:Ignorable="d" 
+      Title="ExampleValidation">
+
+    <Page.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" FontSize="20" Text="!"/>
+                <AdornedElementPlaceholder/>
+                <TextBlock Foreground="Red" FontSize="12" Text="{Binding Path=ErrorContent}"/>
+            </DockPanel>
+        </ControlTemplate>
+        <Style x:Key="TextBoxErrorTooltip" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0">Id:</Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxErrorTooltip}"
+                 Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+            <TextBox.Text>
+                <Binding Path="Id" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Grid.Row="1" Grid.Column="0">Firstname:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxErrorTooltip}"
+                 Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+            <TextBox.Text>
+                <Binding Path="Firstname" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Grid.Row="2" Grid.Column="0">Lastname:</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxErrorTooltip}"
+                 Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+            <TextBox.Text>
+                <Binding Path="Lastname" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <src:LastnameValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+    </Grid>
+</Page>

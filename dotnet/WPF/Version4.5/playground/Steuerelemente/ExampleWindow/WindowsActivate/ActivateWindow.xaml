@@ -1,0 +1,15 @@
+﻿<Window x:Class="ExampleWindow.WindowsActivate.ActivateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NotActivateWindow" Height="300" Width="300"
+        Activated="window_Activated"
+        Deactivated="window_Deactivated">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Name="LabelHandler"></Label>
+        <Label Grid.Column="1" Name="LabelAttribut"></Label>
+    </Grid>
+</Window>

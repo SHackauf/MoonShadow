@@ -1,0 +1,32 @@
+﻿<Page x:Class="ExampleResourcen.Xaml.ResourcesByCodeExample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
+      Title="ResourcesByCodeExample">
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="MyWhiteBrush" Color="White"/>
+        <SolidColorBrush x:Key="MyBlackBrush" Color="Black"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="SetColorByCodeItem" Grid.Row="0" Background="{StaticResource MyWhiteBrush}" Foreground="{StaticResource MyBlackBrush}">Set color by code</TextBlock>
+        <StackPanel Name="PanelItem" Grid.Row="1">
+            <TextBlock>Set by SetResourceReference 1</TextBlock>
+            <TextBlock>Set by SetResourceReference 2</TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <Button Click="SetColorByCode_Click">Set color by code</Button>
+            <Button Click="ChangeResourceDictionaryCode_Click">Change resource dictionary by code</Button>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,6 @@
+﻿<NavigationWindow x:Class="ExampleLayout.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ExampleLayout" Height="700" Width="700"
+        Source="MainPage.xaml">
+</NavigationWindow>

@@ -1,0 +1,17 @@
+﻿<Page x:Class="ExampleLayout.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Title="MainPage">
+    <StackPanel>
+        <TextBlock><Hyperlink NavigateUri="ExampleCanvas.xaml">Canvas</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleDockPanel.xaml">DockPanel</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleGrid.xaml">Grid</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleStackPanel.xaml">StackPanel</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleWrapPanel.xaml">WrapPanel</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleAlignment.xaml">Alignment</Hyperlink></TextBlock>
+        <TextBlock><Hyperlink NavigateUri="ExampleMargin.xaml">Margin</Hyperlink></TextBlock>
+    </StackPanel>
+</Page>

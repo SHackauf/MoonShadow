@@ -1,0 +1,46 @@
+﻿<Window x:Class="ExampleDialog.OwnDialogBox.MyModalDialogBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:local="clr-namespace:ExampleDialog.OwnDialogBox"
+        Title="MyModalDialogBox" 
+        Height="160" MinHeight="160" Width="300" MinWidth="300"
+        ResizeMode="CanResizeWithGrip" ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        FocusManager.FocusedElement="{Binding ElementName=NameTextBox}">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0">Name:</Label>
+        <TextBox Name="NameTextBox" Grid.Column="1" Grid.Row="0">
+            <TextBox.Text>
+                <Binding Path="Name" UpdateSourceTrigger="PropertyChanged" />
+            </TextBox.Text>
+        </TextBox>
+
+        <Label Grid.Column="0" Grid.Row="1">Age:</Label>
+        <TextBox Name="AgeTextBox" Grid.Column="1" Grid.Row="1">
+            <TextBox.Text>
+                <Binding Path="Age" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:AgeValidationRule MinAge="0" MaxAge="150" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="2" Foreground="Red" Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=AgeTextBox}"/>
+
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="OkButton" Click="OkButton_Click" IsDefault="True" Width="100" Margin="1,3">OK</Button>
+            <Button Name="CancelButton" IsCancel="True" Width="100" Margin="0,3">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>
