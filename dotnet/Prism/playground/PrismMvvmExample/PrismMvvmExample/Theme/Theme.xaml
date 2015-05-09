@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- http://paletton.com/-->
+    <Color x:Key="MainColorVeryDark">#226D70</Color>
+    <Color x:Key="MainColorDark">#3C8386</Color>
+    <Color x:Key="MainColor">#5F9DA0</Color>
+    <Color x:Key="MainColorLight">#93C5C7</Color>
+    <Color x:Key="MainColorVeryLight">#C9E4E7</Color>
+
+    <Color x:Key="SecondaryColorVeryDark">#2F457C</Color>
+    <Color x:Key="SecondaryColorDark">#4B6095</Color>
+    <Color x:Key="SecondaryColor">#7082B0</Color>
+    <Color x:Key="SecondaryColorLight">#9FADD0</Color>
+    <Color x:Key="SecondaryColorVeryLight">#D0D7EB</Color>
+
+    <Color x:Key="ColorDarkText">#000000</Color>
+    <Color x:Key="ColorLightText">#FFFFFF</Color>
+
+    <SolidColorBrush x:Key="MainBrushVeryDark" Color="{StaticResource MainColorVeryDark}"/>
+    <SolidColorBrush x:Key="MainBrushDark" Color="{StaticResource MainColorDark}"/>
+    <SolidColorBrush x:Key="MainBrush" Color="{StaticResource MainColor}"/>
+    <SolidColorBrush x:Key="MainBrushLight" Color="{StaticResource MainColorLight}"/>
+    <SolidColorBrush x:Key="MainBrushVeryLight" Color="{StaticResource MainColorVeryLight}"/>
+
+    <SolidColorBrush x:Key="BrushDarkText" Color="{StaticResource ColorDarkText}"/>
+    <SolidColorBrush x:Key="BrushLightText" Color="{StaticResource ColorLightText}"/>
+
+    <SolidColorBrush x:Key="TitleBackground" Color="{StaticResource MainColorDark}"/>
+    <SolidColorBrush x:Key="TitleForground" Color="{StaticResource ColorLightText}"/>
+
+    <SolidColorBrush x:Key="MenuBackground" Color="{StaticResource MainColorLight}"/>
+    <Style x:Key="MenuButton" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource BrushDarkText}" />
+        <Setter Property="Background" Value="{StaticResource MainBrushLight}" />
+        <Setter Property="Padding" Value="5,4" />
+        <Setter Property="Margin" Value="5" />
+    </Style>
+
+    <ControlTemplate x:Key="ValidationTemplate">
+        <DockPanel>
+            <TextBlock Foreground="Red" FontSize="20" Text="!"/>
+            <AdornedElementPlaceholder/>
+            <TextBlock Foreground="Red" FontSize="12" Text="{Binding Path=ErrorContent}"/>
+        </DockPanel>
+    </ControlTemplate>
+</ResourceDictionary>

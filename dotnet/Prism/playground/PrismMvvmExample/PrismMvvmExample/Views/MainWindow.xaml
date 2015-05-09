@@ -1,0 +1,62 @@
+<Window x:Class="PrismMvvmExample.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:prism="clr-namespace:Microsoft.Practices.Prism.Mvvm;assembly=Microsoft.Practices.Prism.Mvvm.Desktop"
+        xmlns:viewModel="clr-namespace:PrismMvvmExample.ViewModels"
+        xmlns:converter="clr-namespace:PrismMvvmExample.Converters"
+        xmlns:userViews="clr-namespace:UserModul.Views;assembly=UserModul"
+        Title="Prism Test Application" Height="700" Width="800"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance viewModel:MainWindowViewModel, IsDesignTimeCreatable=True}"
+        prism:ViewModelLocator.AutoWireViewModel="True">
+    <Window.Resources>
+        <converter:MenuEventArgsConverter x:Key="MenuEventConverter"/>
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Background="{StaticResource TitleBackground}">
+            <TextBlock DockPanel.Dock="Left"
+                       Width="Auto"
+                       Text="Prism Test Application"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource TitleForground}"
+                       FontSize="24"
+                       FontFamily="Comic Sans MS"
+                       Margin="5"/>
+        </DockPanel>
+        <StackPanel DockPanel.Dock="Left" Width="100" Background="{StaticResource MenuBackground}">
+            <Button Style="{StaticResource MenuButton}" Command="{Binding MenuCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource MenuEventConverter}">
+                        <Binding Source="{x:Static viewModel:MenuEnum.User}" Mode="OneWay"/>
+                        <Binding ElementName="WorkingArea"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+                User
+            </Button>
+            <Button Style="{StaticResource MenuButton}" Command="{Binding MenuCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource MenuEventConverter}">
+                        <Binding Source="{x:Static viewModel:MenuEnum.Deparement}" Mode="OneWay"/>
+                        <Binding ElementName="WorkingArea"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+                Department
+            </Button>
+            <Button Style="{StaticResource MenuButton}" Command="{Binding MenuCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource MenuEventConverter}">
+                        <Binding Source="{x:Static viewModel:MenuEnum.Product}" Mode="OneWay"/>
+                        <Binding ElementName="WorkingArea"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+                Product
+            </Button>
+        </StackPanel>
+        <DockPanel Name="WorkingArea">
+            <userViews:UserList/>
+        </DockPanel>
+    </DockPanel>
+</Window>

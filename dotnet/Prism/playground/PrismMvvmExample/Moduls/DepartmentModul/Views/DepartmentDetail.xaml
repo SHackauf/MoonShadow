@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="DepartmentModul.Views.DepartmentDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:prism="clr-namespace:Microsoft.Practices.Prism.Mvvm;assembly=Microsoft.Practices.Prism.Mvvm.Desktop"
+             xmlns:viewModel="clr-namespace:DepartmentModul.ViewModels"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance viewModel:DepartmentDetailViewModel, IsDesignTimeCreatable=True}"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Id"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Department.Id, Mode=OneWay}"></TextBlock>
+        <Label Grid.Row="1" Grid.Column="0" Content="Name"/>
+        <TextBox Grid.Row="1" Grid.Column="1" 
+                 Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                 Text="{Binding Path=Department.Name, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=False, UpdateSourceTrigger=PropertyChanged}"/>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Command="{Binding SaveCommand}">Save</Button>
+            <Button Command="{Binding CancelCommand}">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
