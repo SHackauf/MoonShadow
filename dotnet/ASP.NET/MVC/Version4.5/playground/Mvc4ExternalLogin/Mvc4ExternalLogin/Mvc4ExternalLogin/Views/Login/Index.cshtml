@@ -1,0 +1,31 @@
+﻿@model Mvc4ExternalLogin.Models.LoginViewModel
+@using Microsoft.Owin.Security
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+<fieldset>
+    <legend>Providers</legend>
+    <div>
+        @{
+            var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+            using (Html.BeginForm("ExternalLogin", "Login"))
+            {
+                @Html.AntiForgeryToken()
+                if (loginProviders.Any())
+                {
+                    foreach (AuthenticationDescription p in loginProviders)
+                    {
+                        <div><button type="submit" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType">@p.AuthenticationType</button></div>
+                    }
+                }
+            }
+        }
+    </div>
+    @if (!string.IsNullOrWhiteSpace(Model.Info))
+    {
+        <div><span>@(new HtmlString(Model.Info))</span></div>
+    }
+</fieldset>
